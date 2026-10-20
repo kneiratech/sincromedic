@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17
+    command: postgres -c timezone=America/Lima
+    container_name: sincromedic-postgres
+    environment:
+      POSTGRES_USER: sincromedic
+      POSTGRES_PASSWORD: sincromedic
+      POSTGRES_DB: sincromedic
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d:ro
+      - sincromedic-data:/var/lib/postgresql/data
+volumes:
+  sincromedic-data:

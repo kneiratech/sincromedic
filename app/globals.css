@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/*
+ * Paleta de alto contraste (WCAG AA/AAA sobre fondo claro).
+ * Navy principal #16306B sobre blanco = 12.6:1
+ */
+@theme inline {
+  --font-sans: var(--font-atkinson), system-ui, sans-serif;
+
+  --color-navy-950: #0F1F4A;
+  --color-navy-900: #16306B;
+  --color-navy-800: #1F3F8A;
+  --color-navy-100: #E6ECF8;
+  --color-surface: #F3F5F9;
+  --color-ink: #111827;
+  --color-muted: #3F4A5A;      /* gris oscuro: 8.9:1, legible para baja visión */
+  --color-line: #C9D1DE;
+  --color-ok: #0F6B3F;
+  --color-ok-soft: #E3F4EA;
+  --color-warn: #8A4B00;
+  --color-warn-soft: #FFF2D9;
+  --color-danger: #B42318;
+  --color-danger-soft: #FDECEA;
+  --color-teal: #1F9D80;
+}
+
+/* Tamaño base grande: 18px (adultos mayores). Ajustable con el control "A A+ A++" */
+html {
+  font-size: 112.5%;
+}
+html[data-text="lg"] {
+  font-size: 125%;
+}
+html[data-text="xl"] {
+  font-size: 140%;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Foco muy visible para teclado / lectores de pantalla */
+:focus-visible {
+  outline: 3px solid #F59E0B;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
